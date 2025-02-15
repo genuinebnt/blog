@@ -1,53 +1,27 @@
----
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+## 🐛 Bug Report
 
----
+### 📌 Summary
+<!-- Describe the bug in a clear and concise way -->
 
-name: Bug Report
-description: Report an issue with the application
-title: "[Bug] "
-labels: [bug]
-assignees: 
+### 🔗 Related Issues
+<!-- Link related GitHub issues -->
+Related to #<issue_number>
 
-body:
-  - type: markdown
-    attributes:
-      value: "## 🐛 Bug Report"
+### 🔄 Steps to Reproduce
+1. Go to '...'
+2. Click on '...'
+3. See error
 
-  - type: textarea
-    attributes:
-      label: Describe the bug
-      description: What happened? What did you expect?
-      placeholder: A clear and concise description of the bug.
+### ⚡ Expected Behavior
+<!-- Describe what should happen instead -->
 
-  - type: textarea
-    attributes:
-      label: Steps to reproduce
-      description: How can we reproduce the issue?
-      placeholder: |
-        1. Go to '...'
-        2. Click on '...'
-        3. See error
+### 📸 Screenshots & Logs (if applicable)
+<!-- Attach screenshots or error logs -->
 
-  - type: textarea
-    attributes:
-      label: Expected behavior
-      description: What should happen instead?
-      placeholder: Describe the correct behavior.
+### ✅ Checklist
+- [ ] Bug is reproducible
+- [ ] No duplicate issues exist
+- [ ] Tested on multiple devices/browsers
 
-  - type: textarea
-    attributes:
-      label: Screenshots or Logs
-      description: If applicable, add screenshots or logs to help explain your problem.
-
-  - type: dropdown
-    attributes:
-      label: Priority
-      options:
-        - High
-        - Medium
-        - Low
+### 🚀 Additional Notes
+<!-- Any other details -->
