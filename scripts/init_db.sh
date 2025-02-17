@@ -20,3 +20,11 @@ until psql -h "localhost" -U "${DB_USER}" -p "${DB_PORT}" -d postgres -c '\q'; d
 done
 
 echo >&2 "Postgres is up and running on port: ${DB_PORT}"
+
+DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
+export DATABASE_URL
+
+sqlx database create
+sqlx migrate run
+
+echo >&2 "Postgres has been migrated, ready to go!"

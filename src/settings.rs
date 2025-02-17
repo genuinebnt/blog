@@ -1,6 +1,6 @@
 use std::env;
 
-use config::{Config, ConfigError, Environment, File};
+use config::{Config, ConfigError, Environment, File, FileFormat};
 use serde::Deserialize;
 
 #[derive(Debug, Clone, PartialEq, Eq, Deserialize)]
@@ -15,8 +15,8 @@ impl Settings {
         let run_mode = env::var("RUN_MODE").unwrap_or_else(|_| "development".into());
 
         let settings = Config::builder()
-            .add_source(File::with_name("config/default"))
-            .add_source(File::with_name(&format!("config/{run_mode}")))
+            .add_source(File::new("config/default", FileFormat::Yaml))
+            .add_source(File::new(&format!("config/{run_mode}"), FileFormat::Yaml))
             .add_source(Environment::with_prefix("APP"))
             .build()?;
 
