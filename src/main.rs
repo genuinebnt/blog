@@ -1,4 +1,5 @@
 use blog::settings;
+use sqlx::PgPool;
 use tokio::net::TcpListener;
 
 #[tokio::main]
@@ -11,5 +12,9 @@ async fn main() {
     ))
     .await
     .unwrap();
-    blog::startup::run(listener).await;
+    let pool = PgPool::connect(&connection_string)
+        .await
+        .expect("Failed to connect to Postgres.");
+
+    blog::startup::run(listener, pool).await;
 }

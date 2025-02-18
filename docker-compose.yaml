@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres
-    container_name: "blog_db"
+    container_name: "blog"
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}

@@ -6,7 +6,7 @@
 export DB_USER=${POSTGRES_USER:="postgres"}
 export DB_PASSWORD=${POSTGRES_PASSWORD:="password"}
 export DB_HOST=${POSTGRES_HOST:="localhost"}
-export DB_NAME=${POSTGRES_DB:="blog-db"}
+export DB_NAME=${POSTGRES_DB:="blog"}
 export DB_PORT=${POSTGRES_PORT:=5432}
 
 if [[ -z $SKIP_DOCKER ]]; then

@@ -1,9 +1,10 @@
 use blog::{settings, startup::run};
+use sqlx::PgPool;
 use tokio::net::TcpListener;
 
 #[derive(Debug)]
 pub struct TestApp {
-    pub address: String,
+    pub address: String
 }
 
 pub async fn spawn_app() -> TestApp {
@@ -14,12 +15,15 @@ pub async fn spawn_app() -> TestApp {
     let port = listener.local_addr().unwrap().port();
 
     let settings = settings::Settings::new().expect("Failed to load settings");
+    let connection_string = settings.database_settings.connection_string();
+    println!("Connection string: {}", connection_string);
+    let pool = PgPool::connect(&connection_string).await.unwrap();
 
     tokio::spawn(async move {
-        run(listener).await;
+        run(listener, pool).await;
     });
 
     TestApp {
-        address: format!("{}:{}", url, port),
+        address: format!("{}:{}", url, port)
     }
 }
